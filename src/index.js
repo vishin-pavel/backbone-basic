@@ -10,7 +10,7 @@ class AppView extends View {
     this.template = _.template(template)
   }
   render(){
-    this.$el.append().append(this.template())
+    this.$el.append(this.template())
   }
 }
 
