@@ -1,7 +1,8 @@
 import {View} from 'backbone';
-import $ from 'jquery';
-import template from 'text-loader!./templates/template.html'
-import './css/main.css'
+import template from 'text-loader!./templates/template.html';
+import './css/main.css';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class AppView extends View {
   constructor ($el){

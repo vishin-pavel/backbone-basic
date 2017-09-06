@@ -8,6 +8,11 @@ module.exports = {
     app: './src/index.js'
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      _ : "lodash",
+      $ : "jquery",
+      jQuery : "jquery"
+    }),
     new CleanWebpackPlugin(['public']),
     new HtmlWebpackPlugin({
       inject: true,
@@ -42,24 +47,19 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: [{
           loader: 'style-loader'
         }, {
-          loader: 'css-loader'
+          loader: 'css-loader', options: {
+            sourceMap: true,
+          }
         }, {
           loader: 'sass-loader',
           options: {
-            includePaths: ['absolute/path/a', 'absolute/path/b']
+            sourceMap: true,
           }
         }]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
